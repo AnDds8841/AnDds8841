@@ -5,78 +5,65 @@ import java.util.Scanner;
 
 public class Malovani {
     public static void main(String[] args) {
-    
-        Scanner sc  = new Scanner (System.in);
-            int h = 0;
-            int figSize;
-            int spaceAmount;
-            int starsAmount;
-            int j;
-            int i;
-            int m = 3;
-            String space = " ";
-            String star = "*";
-        System.out.println("Namaluju pro vas Vanocni stromeckovou dekorace");
-        System.out.println("");
-            //Ptame se uzuvatele, jak velkou chce dekorace
-        System.out.print("Jak velkou chcete(jenom licha cisla)?: "); 
+        Scanner sc = new Scanner (System.in);
+        int h = 1;
+        int i, j, s;
+        int m  = 3;
+        
+        String space = " ";
+        String star = "*";
+        int spaceAmount, starsAmount;
+        System.out.println("Udelam pro vas Vanocni dekorace");
+        System.out.print("Jak velkou chcete(jenom licha cisla): ");
+        int figSize = sc.nextInt();
+        while (figSize <= 1 || figSize % 2 == 0){
+            System.out.println("Neda se vitvorit takovou dekorace,");
+            System.out.print("uvedte jine cislo: ");
             figSize = sc.nextInt();
-            while(figSize == 1 || figSize % 2 == 0 || figSize <= 0){
-                System.out.println("Neni mozne vytvorit takovou dekorace,");
-                System.out.print("uvedte jine cislo: ");
-                figSize = sc.nextInt();
+        }
+        int lase = figSize / 2;
+        int k = lase - 2;
+        
+        
+        //cyklus pro lano dekorace
+        for(i = 0; i < (int)(figSize * 0.3); i++){
+            for (j = 0; j < lase; j++){
+            System.out.print(space);
             }
-            int lace = (int) (figSize/2);
-            int k = lace - 1;
-            
-            //ciklus pro lano nase dekorace
-        for (i = 0; i < (int) (lace * 0.5); i++){
-            for (j = 0; j < lace; j++){
+            System.out.println(star);  
+        }
+        
+        //cyklus pro prvni cast dekorace
+        while (h < figSize){
+           for (spaceAmount = 0; spaceAmount <= k; spaceAmount++){
                System.out.print(space);
-            }
+           } 
+           for(starsAmount = 0; starsAmount < m; starsAmount++){
                System.out.print(star);
-      
-               System.out.println(space);
-            }
-          
-             
-             // Ciklus pro prvni cast dekorace
-        while(h < figSize - 1){
-            for(spaceAmount = 0; spaceAmount < k; spaceAmount++ ){
-                System.out.print(space);
-            }
-                
-            for(starsAmount = 0; starsAmount < m; starsAmount++ ){
-                System.out.print(star);
-            }
+           }
             System.out.println(space);
-            k = k - 1;
-            m = m + 2;
             h = h + 2;
+            m = m + 2;
+            k = k - 1;
+            
+                    
         }
-        
-        
-        k = k + 2;
         m = m - 4;
-        // Ciklus pro druhou cast dekorace
-        while(h <= figSize - 1){
-            for(spaceAmount = 0; spaceAmount < k; spaceAmount++ ){
-                System.out.print(space);
-            }
-                
-            for(starsAmount = 0; starsAmount < m; starsAmount++ ){
-                System.out.print(star);
-            }
+        k = k + 2;
+        while (h != 1){
+           for (spaceAmount = 0; spaceAmount <= k; spaceAmount++){
+               System.out.print(space);
+           } 
+           for(starsAmount = 0; starsAmount < m; starsAmount++){
+               System.out.print(star);
+           }
             System.out.println(space);
-            if (m == 1){
-                 break;
-            }else{
-            k = k + 1;
-            m = m - 2;
             h = h - 2;
-            }
+            m = m - 2;
+            k = k + 1;
+            
+                    
         }
     }
-    }
-   
+}
 
