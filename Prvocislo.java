@@ -1,6 +1,4 @@
 
-package ArrayEx;
-
 import java.util.Scanner;
 
 public class Prvocislo {
